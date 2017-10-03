@@ -12,8 +12,7 @@ jobs:
             ./ci_support/fast_finish_ci_pr_build.sh
             ./ci_support/checkout_merge_commit.sh
       - run:
-          name: Pull the docker image
-          command: bash pull condaforge/linux-anvil
+          command: docker pull condaforge/linux-anvil
       - run:
           # Run, test and (if we have a BINSTAR_TOKEN) upload the distributions.
           command: ./ci_support/run_docker_build.sh
