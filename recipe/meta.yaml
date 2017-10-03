@@ -1,4 +1,4 @@
-{% set version = "1.5.1" %}
+{% set version = "1.5.2" %}
 
 package:
     name: libjpeg-turbo
@@ -6,8 +6,8 @@ package:
 
 source:
     fn: libjpeg-turbo-{{ version }}.tar.gz
-    url: http://downloads.sourceforge.net/project/libjpeg-turbo/{{ version }}/libjpeg-turbo-{{ version }}.tar.gz
-    md5: 55deb139b0cac3c8200b75d485fc13f3
+    url: https://github.com/libjpeg-turbo/libjpeg-turbo/archive/{{ version }}.tar.gz
+    sha256: d08b57310725155b6b81d7a97f57df198ab72098e851e19b633a57a35f7feb0d
 
 build:
     number: 0
