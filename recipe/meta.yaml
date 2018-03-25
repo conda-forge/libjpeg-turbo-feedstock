@@ -1,54 +1,46 @@
-{% set version = "1.5.3" %}
+{% set version = "1.5.90" %}
 
 package:
-    name: libjpeg-turbo
-    version: {{ version }}
+  name: libjpeg-turbo
+  version: {{ version }}
 
 source:
-    fn: libjpeg-turbo-{{ version }}.tar.gz
-    url: https://github.com/libjpeg-turbo/libjpeg-turbo/archive/{{ version }}.tar.gz
-    sha256: 1a17020f859cb12711175a67eab5c71fc1904e04b587046218e36106e07eabde
+  url: https://github.com/libjpeg-turbo/libjpeg-turbo/archive/{{ version }}.tar.gz
+  sha256: cb948ade92561d8626fd7866a4a7ba3b952f9759ea3dd642927bc687470f60b7
 
 build:
-    number: 0
-    features:
-        - vc9  # [win and py27]
-        - vc10  # [win and py34]
-        - vc14  # [win and py35]
-        - vc14  # [win and py36]
+  number: 0
+  features:
+    - vc9  # [win and py27]
+    - vc14  # [win and (py35 or py36)]
 
 requirements:
-    build:
-        - python  # [win]
-        - cmake  # [win]
-        - msinttypes  # [win]
-        - autoconf  # [unix]
-        - automake  # [unix]
-        - libtool  # [unix]
-        - yasm
-        - vc   9  # [win and py27]
-        - vc  10  # [win and py34]
-        - vc  14  # [win and py35]
-        - vc  14  # [win and py36]
-
-    run:
-        - vc   9  # [win and py27]
-        - vc  10  # [win and py34]
-        - vc  14  # [win and py35]
-        - vc  14  # [win and py36]
+  build:
+    - python  # [win]
+    - cmake
+    - msinttypes  # [win and py<35]
+    - yasm
+    - vc 9  # [win and py27]
+    - vc 14  # [win and (py35 or py36)]
+  run:
+    - vc 9  # [win and py27]
+    - vc 14  # [win and (py35 or py36)]
 
 test:
-    files:
-        - testorig.jpg
-    commands:
-        - djpeg -dct int -ppm -outfile testout.ppm testorig.jpg
+  files:
+    - testorig.jpg
+  commands:
+    - djpeg -dct int -ppm -outfile testout.ppm testorig.jpg
+    - conda inspect linkages -p $PREFIX $PKG_NAME  # [not win]
+    - conda inspect objects -p $PREFIX $PKG_NAME  # [osx]
 
 about:
-    home: http://www.libjpeg-turbo.org/
-    license: IJG, modified 3-clause BSD and zlib
-    summary: IJG JPEG compliant runtime library with SIMD and other optimizations
+  home: http://www.libjpeg-turbo.org/
+  license: IJG, modified 3-clause BSD and zlib
+  license_file: LICENSE.md
+  summary: IJG JPEG compliant runtime library with SIMD and other optimizations
 
 extra:
-    recipe-maintainers:
-        - valgur
-        - sdvillal
+  recipe-maintainers:
+    - valgur
+    - sdvillal
