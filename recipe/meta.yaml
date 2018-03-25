@@ -10,7 +10,7 @@ source:
     sha256: 1a17020f859cb12711175a67eab5c71fc1904e04b587046218e36106e07eabde
 
 build:
-    number: 0
+    number: 1
     features:
         - vc9  # [win and py27]
         - vc10  # [win and py34]
