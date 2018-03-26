@@ -1,4 +1,6 @@
-REM Build step
+:: Build step
+mkdir build_libjpeg
+cd  build_libjpeg
 cmake -G "NMake Makefiles" ^
 	-D CMAKE_INSTALL_PREFIX=%LIBRARY_PREFIX% ^
 	-D CMAKE_BUILD_TYPE=Release ^
@@ -6,12 +8,12 @@ cmake -G "NMake Makefiles" ^
 	-D ENABLE_SHARED=1 ^
 	-D WITH_JPEG8=1 ^
 	-D NASM=yasm ^
-	.
+	%SRC_DIR%
 if errorlevel 1 exit 1
 
 nmake
 if errorlevel 1 exit 1
 
-REM Install step
+:: Install step
 nmake install
 if errorlevel 1 exit 1
