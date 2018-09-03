@@ -1,4 +1,4 @@
-{% set version = "1.5.90" %}
+{% set version = "2.0.0" %}
 
 package:
   name: libjpeg-turbo
@@ -6,33 +6,26 @@ package:
 
 source:
   url: https://github.com/libjpeg-turbo/libjpeg-turbo/archive/{{ version }}.tar.gz
-  sha256: cb948ade92561d8626fd7866a4a7ba3b952f9759ea3dd642927bc687470f60b7
+  sha256: f892fff427ab3adffc289363eac26d197ce3ccacefe5f5822377348a8166069b
 
 build:
   number: 0
-  features:
-    - vc9  # [win and py27]
-    - vc14  # [win and (py35 or py36)]
+  run_exports:
+    - {{ pin_subpackage('libjpeg-turbo', max_pin='x') }}
 
 requirements:
   build:
-    - python  # [win]
+    - {{ compiler('c') }}
     - cmake
     - msinttypes  # [win and py<35]
     - yasm
-    - vc 9  # [win and py27]
-    - vc 14  # [win and (py35 or py36)]
-  run:
-    - vc 9  # [win and py27]
-    - vc 14  # [win and (py35 or py36)]
+    - jom  # [win]
 
 test:
   files:
     - testorig.jpg
   commands:
     - djpeg -dct int -ppm -outfile testout.ppm testorig.jpg
-    - conda inspect linkages -p $PREFIX $PKG_NAME  # [not win]
-    - conda inspect objects -p $PREFIX $PKG_NAME  # [osx]
 
 about:
   home: http://www.libjpeg-turbo.org/

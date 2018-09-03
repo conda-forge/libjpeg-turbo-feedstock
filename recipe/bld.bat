@@ -1,6 +1,7 @@
 :: Build step
 mkdir build_libjpeg
 cd  build_libjpeg
+
 cmake -G "NMake Makefiles" ^
 	-D CMAKE_INSTALL_PREFIX=%LIBRARY_PREFIX% ^
 	-D CMAKE_BUILD_TYPE=Release ^
@@ -11,9 +12,9 @@ cmake -G "NMake Makefiles" ^
 	%SRC_DIR%
 if errorlevel 1 exit 1
 
-nmake
+jom -j%CPU_COUNT%
 if errorlevel 1 exit 1
 
 :: Install step
-nmake install
+jom install
 if errorlevel 1 exit 1
