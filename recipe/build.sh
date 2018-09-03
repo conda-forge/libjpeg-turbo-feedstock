@@ -14,3 +14,6 @@ cmake -D CMAKE_INSTALL_PREFIX=$PREFIX \
 make -j$CPU_COUNT
 ctest
 make install -j$CPU_COUNT
+
+# We can remove this when we start using the new conda-build.
+find $PREFIX -name '*.la' -delete
