@@ -9,7 +9,7 @@ source:
   sha256: f892fff427ab3adffc289363eac26d197ce3ccacefe5f5822377348a8166069b
 
 build:
-  number: 0
+  number: 1000
   run_exports:
     - {{ pin_subpackage('libjpeg-turbo', max_pin='x') }}
 
