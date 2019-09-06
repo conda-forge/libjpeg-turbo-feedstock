@@ -9,7 +9,7 @@ source:
   sha256: a69598bf079463b34d45ca7268462a18b6507fdaa62bb1dfd212f02041499b5d
 
 build:
-  number: 0
+  number: 1
   run_exports:
     - {{ pin_subpackage('libjpeg-turbo', max_pin='x') }}
 
@@ -17,6 +17,7 @@ requirements:
   build:
     - {{ compiler('c') }}
     - cmake
+    - make
     - msinttypes  # [win and py<35]
     - yasm
     - jom  # [win]
