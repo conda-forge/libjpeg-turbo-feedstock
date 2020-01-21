@@ -9,9 +9,7 @@ source:
   sha256: a78b05c0d8427a90eb5b4eb08af25309770c8379592bb0b8a863373128e6143f
 
 build:
-  number: 0
-  run_exports:
-    - {{ pin_subpackage('libjpeg-turbo', max_pin='x') }}
+  number: 1
 
 requirements:
   build:
@@ -20,11 +18,41 @@ requirements:
     - make
     - yasm
 
-test:
-  files:
-    - testorig.jpg
-  commands:
-    - djpeg -dct int -ppm -outfile testout.ppm testorig.jpg
+outputs:
+  - name: libjpeg-turbo
+    build:
+      run_exports:
+      - {{ pin_subpackage('libjpeg-turbo', max_pin='x') }}
+    requirements:
+      build:
+        - {{ compiler('c') }}
+        - cmake
+        - make
+        - msinttypes  # [win and py<35]
+        - yasm
+        - jom  # [win]
+
+    test:
+      files:
+        - testorig.jpg
+      commands:
+        - djpeg -dct int -ppm -outfile testout.ppm testorig.jpg
+
+    about:
+      summary: IJG JPEG compliant runtime library with SIMD and other optimizations
+
+  - name: jpeg
+    version: 8d
+    build:
+      run_exports:
+        - {{ pin_subpackage('jpeg') }}
+      track_features:
+        - jpeg_impl_libjpeg_turbo
+    requirements:
+      run:
+        - {{ pin_subpackage('libjpeg-turbo', exact=True) }}
+    about:
+      summary: jpeg virtual package
 
 about:
   home: http://www.libjpeg-turbo.org/
