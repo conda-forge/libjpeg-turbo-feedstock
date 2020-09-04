@@ -26,7 +26,7 @@ Current build status
     <td>Drone</td>
     <td>
       <a href="https://cloud.drone.io/conda-forge/libjpeg-turbo-feedstock">
-        <img alt="linux" src="https://img.shields.io/drone/build/conda-forge/master.svg?label=Linux">
+        <img alt="linux" src="https://img.shields.io/drone/build/conda-forge/libjpeg-turbo-feedstock/master.svg?label=Linux">
       </a>
     </td>
   </tr>
@@ -71,17 +71,10 @@ Current build status
                 </a>
               </td>
             </tr><tr>
-              <td>win_c_compilervs2008</td>
+              <td>win</td>
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=548&branchName=master">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/libjpeg-turbo-feedstock?branchName=master&jobName=win&configuration=win_c_compilervs2008" alt="variant">
-                </a>
-              </td>
-            </tr><tr>
-              <td>win_c_compilervs2015</td>
-              <td>
-                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=548&branchName=master">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/libjpeg-turbo-feedstock?branchName=master&jobName=win&configuration=win_c_compilervs2015" alt="variant">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/libjpeg-turbo-feedstock?branchName=master&jobName=win&configuration=win_" alt="variant">
                 </a>
               </td>
             </tr>
@@ -97,6 +90,7 @@ Current release info
 
 | Name | Downloads | Version | Platforms |
 | --- | --- | --- | --- |
+| [![Conda Recipe](https://img.shields.io/badge/recipe-jpeg-green.svg)](https://anaconda.org/conda-forge/jpeg) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/jpeg.svg)](https://anaconda.org/conda-forge/jpeg) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/jpeg.svg)](https://anaconda.org/conda-forge/jpeg) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/jpeg.svg)](https://anaconda.org/conda-forge/jpeg) |
 | [![Conda Recipe](https://img.shields.io/badge/recipe-libjpeg--turbo-green.svg)](https://anaconda.org/conda-forge/libjpeg-turbo) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/libjpeg-turbo.svg)](https://anaconda.org/conda-forge/libjpeg-turbo) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/libjpeg-turbo.svg)](https://anaconda.org/conda-forge/libjpeg-turbo) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/libjpeg-turbo.svg)](https://anaconda.org/conda-forge/libjpeg-turbo) |
 
 Installing libjpeg-turbo
@@ -108,16 +102,16 @@ Installing `libjpeg-turbo` from the `conda-forge` channel can be achieved by add
 conda config --add channels conda-forge
 ```
 
-Once the `conda-forge` channel has been enabled, `libjpeg-turbo` can be installed with:
+Once the `conda-forge` channel has been enabled, `jpeg, libjpeg-turbo` can be installed with:
 
 ```
-conda install libjpeg-turbo
+conda install jpeg libjpeg-turbo
 ```
 
-It is possible to list all of the versions of `libjpeg-turbo` available on your platform with:
+It is possible to list all of the versions of `jpeg` available on your platform with:
 
 ```
-conda search libjpeg-turbo --channel conda-forge
+conda search jpeg --channel conda-forge
 ```
 
 
