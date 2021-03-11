@@ -2,7 +2,7 @@
 
 mkdir build_libjpeg && cd  build_libjpeg
 
-cmake -D CMAKE_INSTALL_PREFIX=$PREFIX \
+cmake ${CMAKE_ARGS} -D CMAKE_INSTALL_PREFIX=$PREFIX \
       -D CMAKE_INSTALL_LIBDIR="$PREFIX/lib" \
       -D CMAKE_BUILD_TYPE=Release \
       -D ENABLE_STATIC=1 \
@@ -12,7 +12,9 @@ cmake -D CMAKE_INSTALL_PREFIX=$PREFIX \
       $SRC_DIR
 
 make -j$CPU_COUNT
+if [[ "${CONDA_BUILD_CROSS_COMPILATION}" != "1" ]]; then
 ctest
+fi
 make install -j$CPU_COUNT
 
 # We can remove this when we start using the new conda-build.
