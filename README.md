@@ -104,6 +104,7 @@ Installing `libjpeg-turbo` from the `conda-forge` channel can be achieved by add
 
 ```
 conda config --add channels conda-forge
+conda config --set channel_priority strict
 ```
 
 Once the `conda-forge` channel has been enabled, `libjpeg-turbo` can be installed with:
@@ -182,6 +183,7 @@ In order to produce a uniquely identifiable distribution:
 Feedstock Maintainers
 =====================
 
+* [@carlodri](https://github.com/carlodri/)
 * [@sdvillal](https://github.com/sdvillal/)
 * [@valgur](https://github.com/valgur/)
 
