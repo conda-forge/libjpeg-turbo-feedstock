@@ -12,9 +12,9 @@ cmake -G "NMake Makefiles" ^
 	%SRC_DIR%
 if errorlevel 1 exit 1
 
-jom -j%CPU_COUNT%
+nmake
 if errorlevel 1 exit 1
 
 :: Install step
-jom install
+nmake install
 if errorlevel 1 exit 1
