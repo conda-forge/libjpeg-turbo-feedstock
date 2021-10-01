@@ -19,7 +19,6 @@ requirements:
     - cmake
     - make
     - yasm
-    - jom  # [win]
 
 test:
   files:
