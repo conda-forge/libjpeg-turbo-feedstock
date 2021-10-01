@@ -1,4 +1,4 @@
-{% set version = "2.1.0" %}
+{% set version = "2.1.1" %}
 
 package:
   name: libjpeg-turbo
@@ -6,7 +6,7 @@ package:
 
 source:
   url: https://github.com/libjpeg-turbo/libjpeg-turbo/archive/{{ version }}.tar.gz
-  sha256: d6b7790927d658108dfd3bee2f0c66a2924c51ee7f9dc930f62c452f4a638c52
+  sha256: 20e9cd3e5f517950dfb7a300ad344543d88719c254407ffb5ad88d891bf701c4
 
 build:
   number: 0
@@ -18,9 +18,7 @@ requirements:
     - {{ compiler('c') }}
     - cmake
     - make
-    - msinttypes  # [win and py<35]
     - yasm
-    - jom  # [win]
 
 test:
   files:
