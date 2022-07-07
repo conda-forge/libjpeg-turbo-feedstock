@@ -1,4 +1,4 @@
-{% set version = "2.1.1" %}
+{% set version = "2.1.3" %}
 
 package:
   name: libjpeg-turbo
@@ -6,7 +6,7 @@ package:
 
 source:
   url: https://github.com/libjpeg-turbo/libjpeg-turbo/archive/{{ version }}.tar.gz
-  sha256: 20e9cd3e5f517950dfb7a300ad344543d88719c254407ffb5ad88d891bf701c4
+  sha256: dbda0c685942aa3ea908496592491e5ec8160d2cf1ec9d5fd5470e50768e7859
 
 build:
   number: 0
