@@ -6,7 +6,7 @@ package:
 
 source:
   url: https://github.com/libjpeg-turbo/libjpeg-turbo/archive/{{ version }}.tar.gz
-  sha256: d3ed26a1131a13686dfca4935e520eb7c90ae76fbc45d98bb50a8dc86230342b
+  sha256: a78b05c0d8427a90eb5b4eb08af25309770c8379592bb0b8a863373128e6143f
 
 build:
   number: 0
