@@ -88,6 +88,7 @@ Current release info
 
 | Name | Downloads | Version | Platforms |
 | --- | --- | --- | --- |
+| [![Conda Recipe](https://img.shields.io/badge/recipe-jpeg-green.svg)](https://anaconda.org/conda-forge/jpeg) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/jpeg.svg)](https://anaconda.org/conda-forge/jpeg) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/jpeg.svg)](https://anaconda.org/conda-forge/jpeg) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/jpeg.svg)](https://anaconda.org/conda-forge/jpeg) |
 | [![Conda Recipe](https://img.shields.io/badge/recipe-libjpeg--turbo-green.svg)](https://anaconda.org/conda-forge/libjpeg-turbo) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/libjpeg-turbo.svg)](https://anaconda.org/conda-forge/libjpeg-turbo) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/libjpeg-turbo.svg)](https://anaconda.org/conda-forge/libjpeg-turbo) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/libjpeg-turbo.svg)](https://anaconda.org/conda-forge/libjpeg-turbo) |
 
 Installing libjpeg-turbo
@@ -100,41 +101,41 @@ conda config --add channels conda-forge
 conda config --set channel_priority strict
 ```
 
-Once the `conda-forge` channel has been enabled, `libjpeg-turbo` can be installed with `conda`:
+Once the `conda-forge` channel has been enabled, `jpeg, libjpeg-turbo` can be installed with `conda`:
 
 ```
-conda install libjpeg-turbo
-```
-
-or with `mamba`:
-
-```
-mamba install libjpeg-turbo
-```
-
-It is possible to list all of the versions of `libjpeg-turbo` available on your platform with `conda`:
-
-```
-conda search libjpeg-turbo --channel conda-forge
+conda install jpeg libjpeg-turbo
 ```
 
 or with `mamba`:
 
 ```
-mamba search libjpeg-turbo --channel conda-forge
+mamba install jpeg libjpeg-turbo
+```
+
+It is possible to list all of the versions of `jpeg` available on your platform with `conda`:
+
+```
+conda search jpeg --channel conda-forge
+```
+
+or with `mamba`:
+
+```
+mamba search jpeg --channel conda-forge
 ```
 
 Alternatively, `mamba repoquery` may provide more information:
 
 ```
 # Search all versions available on your platform:
-mamba repoquery search libjpeg-turbo --channel conda-forge
+mamba repoquery search jpeg --channel conda-forge
 
-# List packages depending on `libjpeg-turbo`:
-mamba repoquery whoneeds libjpeg-turbo --channel conda-forge
+# List packages depending on `jpeg`:
+mamba repoquery whoneeds jpeg --channel conda-forge
 
-# List dependencies of `libjpeg-turbo`:
-mamba repoquery depends libjpeg-turbo --channel conda-forge
+# List dependencies of `jpeg`:
+mamba repoquery depends jpeg --channel conda-forge
 ```
 
 
