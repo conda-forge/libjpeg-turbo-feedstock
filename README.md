@@ -205,6 +205,7 @@ Feedstock Maintainers
 =====================
 
 * [@carlodri](https://github.com/carlodri/)
+* [@hmaarrfk](https://github.com/hmaarrfk/)
 * [@sdvillal](https://github.com/sdvillal/)
 * [@valgur](https://github.com/valgur/)
 
