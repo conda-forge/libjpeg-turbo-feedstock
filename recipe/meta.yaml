@@ -9,7 +9,7 @@ source:
   sha256: a78b05c0d8427a90eb5b4eb08af25309770c8379592bb0b8a863373128e6143f
 
 build:
-  number: 0
+  number: 1
   run_exports:
     - {{ pin_subpackage('libjpeg-turbo', max_pin='x') }}
 
@@ -19,6 +19,8 @@ requirements:
     - cmake
     - make
     - yasm
+  run_constrained:
+    - jpeg <0.0.0a
 
 test:
   files:
@@ -37,3 +39,4 @@ extra:
     - valgur
     - sdvillal
     - carlodri
+    - hmaarrfk
