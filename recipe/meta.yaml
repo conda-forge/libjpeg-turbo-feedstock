@@ -1,4 +1,4 @@
-{% set version = "2.1.4" %}
+{% set version = "2.1.5.1" %}
 
 package:
   name: libjpeg-turbo
