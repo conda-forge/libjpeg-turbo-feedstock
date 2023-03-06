@@ -1,11 +1,11 @@
-About libjpeg-turbo
-===================
+About libjpeg-turbo-feedstock
+=============================
+
+Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/libjpeg-turbo-feedstock/blob/main/LICENSE.txt)
 
 Home: http://www.libjpeg-turbo.org/
 
 Package license: IJG, modified 3-clause BSD and zlib
-
-Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/libjpeg-turbo-feedstock/blob/main/LICENSE.txt)
 
 Summary: IJG JPEG compliant runtime library with SIMD and other optimizations
 
@@ -208,7 +208,4 @@ Feedstock Maintainers
 * [@hmaarrfk](https://github.com/hmaarrfk/)
 * [@sdvillal](https://github.com/sdvillal/)
 * [@valgur](https://github.com/valgur/)
-
-
-<!-- dummy commit to enable rerendering -->
 
