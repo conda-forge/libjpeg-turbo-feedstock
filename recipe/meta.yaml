@@ -6,10 +6,10 @@ package:
 
 source:
   url: https://github.com/libjpeg-turbo/libjpeg-turbo/archive/{{ version }}.tar.gz
-  sha256: a78b05c0d8427a90eb5b4eb08af25309770c8379592bb0b8a863373128e6143f
+  sha256: 61846251941e5791005fb7face196eec24541fce04f12570c308557529e92c75
 
 build:
-  number: 1
+  number: 0
   run_exports:
     - {{ pin_subpackage('libjpeg-turbo', max_pin='x') }}
 
