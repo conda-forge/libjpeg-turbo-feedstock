@@ -5,9 +5,11 @@ Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/libjpeg-turbo-f
 
 Home: http://www.libjpeg-turbo.org/
 
-Package license: IJG, modified 3-clause BSD and zlib
+Package license: IJG AND BSD-3-Clause AND Zlib
 
 Summary: IJG JPEG compliant runtime library with SIMD and other optimizations
+
+Development: https://github.com/libjpeg-turbo/libjpeg-turbo
 
 Current build status
 ====================
