@@ -1,9 +1,11 @@
 #!/bin/bash
 
+mkdir "$SRC_DIR/stage"
+
 mkdir build_libjpeg && cd  build_libjpeg
 
-cmake ${CMAKE_ARGS} -D CMAKE_INSTALL_PREFIX=$PREFIX \
-      -D CMAKE_INSTALL_LIBDIR="$PREFIX/lib" \
+cmake ${CMAKE_ARGS} -D CMAKE_INSTALL_PREFIX="$SRC_DIR/stage" \
+      -D CMAKE_INSTALL_LIBDIR="$SRC_DIR/stage/lib" \
       -D CMAKE_BUILD_TYPE=Release \
       -D ENABLE_STATIC=1 \
       -D ENABLE_SHARED=1 \

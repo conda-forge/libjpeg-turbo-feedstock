@@ -1,7 +1,11 @@
 {% set version = "3.0.0" %}
+{% set jpeg_so_version = "8.3.2"%}
+{% set jpeg_so_major_version = jpeg_so_version.split('.')[0] %}
+{% set turbo_so_version = "0.3.0"%}
+{% set turbo_so_major_version = turbo_so_version.split('.')[0] %}
 
 package:
-  name: libjpeg-turbo
+  name: libjpeg-turbo-split
   version: {{ version }}
 
 source:
@@ -9,9 +13,7 @@ source:
   sha256: 171dae5d73560bc94006a7c0c3281bd9bfde6a34f7e41e66f930a1a9162bd7df
 
 build:
-  number: 1
-  run_exports:
-    - {{ pin_subpackage('libjpeg-turbo', max_pin='x') }}
+  number: 2
 
 requirements:
   build:
@@ -19,14 +21,154 @@ requirements:
     - cmake
     - make
     - yasm
-  run_constrained:
-    - jpeg <0.0.0a
 
-test:
-  files:
-    - testorig.jpg
-  commands:
-    - djpeg -dct int -ppm -outfile testout.ppm testorig.jpg
+outputs:
+
+  # Binary package; this is the exported name from the pre-multi-output recipe
+  - name: libjpeg-turbo
+    script: install.py
+    requirements:
+      build:
+        - {{ compiler('c') }}
+      host:
+        - {{ pin_subpackage('libturbojpeg' ~ turbo_so_major_version, exact=True) }}
+        - {{ pin_subpackage('libjpeg' ~ jpeg_so_major_version, exact=True) }}
+      run:
+        - {{ pin_subpackage('libturbojpeg' ~ turbo_so_major_version, exact=True) }}
+        - {{ pin_subpackage('libjpeg' ~ jpeg_so_major_version, exact=True) }}
+      run_constrained:
+        - jpeg <0.0.0a
+    test:
+      files:
+        - testorig.jpg
+      commands:
+        - djpeg -dct int -ppm -outfile testout.ppm testorig.jpg
+        - test -f ${PREFIX}/bin/cjpeg                                         # [unix]
+        - test -f ${PREFIX}/bin/djpeg                                         # [unix]
+        - test -f ${PREFIX}/bin/jpegtran                                      # [unix]
+        - test -f ${PREFIX}/bin/rdjpgcom                                     # [unix]
+        - test -f ${PREFIX}/bin/tjbench                                       # [unix]
+        - test -f ${PREFIX}/bin/wrjpgcom                                     # [unix]
+        - if not exist %PREFIX%\\Library\\bin\\cjpeg.exe exit 1               # [win]
+        - if not exist %PREFIX%\\Library\\bin\\djpeg.exe exit 1               # [win]
+        - if not exist %PREFIX%\\Library\\bin\\jpegtran.exe exit 1            # [win]
+        - if not exist %PREFIX%\\Library\\bin\\rdjpgcom.exe exit 1           # [win]
+        - if not exist %PREFIX%\\Library\\bin\\tjbench.exe exit 1             # [win]
+        - if not exist %PREFIX%\\Library\\bin\\wrjpgcom.exe exit 1           # [win]
+
+  # Development package
+  - name: libjpeg-turbo-dev
+    script: install.py
+    build:
+      run_exports:
+        - {{ pin_subpackage('libturbojpeg' ~ turbo_so_major_version) }}
+        - {{ pin_subpackage('libjpeg' ~ jpeg_so_major_version) }}
+    requirements:
+      build:
+        - {{ compiler('c') }}
+      host:
+        - {{ pin_subpackage('libturbojpeg' ~ turbo_so_major_version, exact=True) }}
+        - {{ pin_subpackage('libjpeg' ~ jpeg_so_major_version, exact=True) }}
+      run:
+        - {{ pin_subpackage('libturbojpeg' ~ turbo_so_major_version, exact=True) }}
+        - {{ pin_subpackage('libjpeg' ~ jpeg_so_major_version, exact=True) }}
+      run_constrained:
+        - jpeg <0.0.0a
+    test:
+      commands:
+        - test -f ${PREFIX}/include/turbojpeg.h                               # [unix]
+        - if not exist %PREFIX%\\Library\\include\\turbojpeg.h exit 1         # [win]
+
+        - test -f ${PREFIX}/lib/libturbojpeg${SHLIB_EXT}                   # [unix]
+        - test -f ${PREFIX}/lib/libturbojpeg.so.{{ turbo_so_major_version }}     # [linux]
+        - test -f ${PREFIX}/lib/libturbojpeg.so.{{ turbo_so_version }}           # [linux]
+        - test -f ${PREFIX}/lib/libturbojpeg.{{ turbo_so_major_version }}.dylib  # [osx]
+        - test -f ${PREFIX}/lib/libturbojpeg.{{ turbo_so_version }}.dylib        # [osx]
+        - if not exist %PREFIX%\\Library\\bin\\turbojpeg.dll exit 1        # [win]
+        - if not exist %PREFIX%\\Library\\lib\\turbojpeg.lib exit 1        # [win]
+        - test -f ${PREFIX}/lib/libjpeg${SHLIB_EXT}                   # [unix]
+        - test -f ${PREFIX}/lib/libjpeg.so.{{ jpeg_so_major_version }}     # [linux]
+        - test -f ${PREFIX}/lib/libjpeg.so.{{ jpeg_so_version }}           # [linux]
+        - test -f ${PREFIX}/lib/libjpeg.{{ jpeg_so_major_version }}.dylib  # [osx]
+        - test -f ${PREFIX}/lib/libjpeg.{{ jpeg_so_version }}.dylib        # [osx]
+        - if not exist %PREFIX%\\Library\\bin\\jpeg{{ jpeg_so_major_version }}.dll exit 1  # [win]
+        - if not exist %PREFIX%\\Library\\lib\\jpeg.lib exit 1        # [win]
+
+        - test -f ${PREFIX}/lib/pkgconfig/libturbojpeg.pc                         # [unix]
+        - if not exist %PREFIX%\\Library\\lib\\pkgconfig\\libturbojpeg.pc exit 1  # [win]
+        - test -f ${PREFIX}/lib/pkgconfig/libjpeg.pc                         # [unix]
+        - if not exist %PREFIX%\\Library\\lib\\pkgconfig\\libjpeg.pc exit 1  # [win]
+        - test -f ${PREFIX}/lib/cmake/libjpeg-turbo/libjpeg-turboConfig.cmake   # [unix]
+        - test -f ${PREFIX}/lib/cmake/libjpeg-turbo/libjpeg-turboTargets.cmake  # [unix]
+        - if not exist %PREFIX%\\Library\\lib\\cmake\\libjpeg-turbo\\libjpeg-turboConfig.cmake exit 1   # [win]
+        - if not exist %PREFIX%\\Library\\lib\\cmake\\libjpeg-turbo\\libjpeg-turboTargets.cmake exit 1  # [win]
+
+  # Run exports package
+  - name: libturbojpeg{{ turbo_so_major_version }}
+    script: install.py
+    build:
+      run_exports:
+        - {{ pin_subpackage('libturbojpeg' ~ turbo_so_major_version) }}
+    requirements:
+      build:
+        - {{ compiler('c') }}
+      run:
+        - {{ pin_subpackage('_libturbojpeg_api', max_pin='x.x.x') }}          # [win]
+    test:
+      commands:
+      # Need these
+        - test -f ${PREFIX}/lib/libturbojpeg.so.{{ turbo_so_major_version }}        # [linux]
+        - test -f ${PREFIX}/lib/libturbojpeg.so.{{ turbo_so_version }}              # [linux]
+        - test -f ${PREFIX}/lib/libturbojpeg.{{ turbo_so_major_version }}.dylib     # [osx]
+        - test -f ${PREFIX}/lib/libturbojpeg.{{ turbo_so_version }}.dylib           # [osx]
+        - if not exist %PREFIX%\\Library\\bin\\turbojpeg.dll exit 1           # [win]
+  - name: libjpeg{{ jpeg_so_major_version }}
+    script: install.py
+    build:
+      run_exports:
+        - {{ pin_subpackage('libjpeg' ~ jpeg_so_major_version) }}
+    requirements:
+      build:
+        - {{ compiler('c') }}
+      run_constrained:
+        - jpeg <0.0.0a
+    test:
+      commands:
+      # Need these
+        - test -f ${PREFIX}/lib/libjpeg.so.{{ jpeg_so_major_version }}             # [linux]
+        - test -f ${PREFIX}/lib/libjpeg.so.{{ jpeg_so_version }}                   # [linux]
+        - test -f ${PREFIX}/lib/libjpeg.{{ jpeg_so_major_version }}.dylib          # [osx]
+        - test -f ${PREFIX}/lib/libjpeg.{{ jpeg_so_version }}.dylib                # [osx]
+        - if not exist %PREFIX%\\Library\\bin\\jpeg{{ jpeg_so_major_version }}.dll exit 1  # [win]
+
+  # Static library package
+  - name: libturbojpeg-static
+    script: install.py
+    test:
+      commands:
+      # Need these
+        - test -f ${PREFIX}/lib/libturbojpeg.a                                # [unix]
+        - if not exist %PREFIX%\\Library\\lib\\turbojpeg-static.lib exit 1    # [win]
+  - name: libjpeg-static
+    script: install.py
+    requirements:
+      run_constrained:
+        - jpeg <0.0.0a
+    test:
+      commands:
+      # Need these
+        - test -f ${PREFIX}/lib/libjpeg.a                                     # [unix]
+        - if not exist %PREFIX%\\Library\\lib\\jpeg-static.lib exit 1         # [win]
+
+  # Clobber preventer for Windows; prevents multiple dll files from being
+  # installed simultaneously. This lets us avoid exporting a strict pin on the
+  # API which is not strictly correlated with the ABI.
+  - name: _libturbojpeg_api
+    build:
+      skip: true  # [not win]
+    about:
+      summary: >
+        An empty package that prevents multiple ABIs being installed simultaneously on Windows.
 
 about:
   home: http://www.libjpeg-turbo.org/
