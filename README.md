@@ -1,7 +1,11 @@
-About libjpeg-turbo-feedstock
-=============================
+About libjpeg-turbo-split-feedstock
+===================================
 
 Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/libjpeg-turbo-feedstock/blob/main/LICENSE.txt)
+
+
+About libjpeg-turbo-split
+-------------------------
 
 Home: http://www.libjpeg-turbo.org/
 
@@ -10,6 +14,16 @@ Package license: IJG AND BSD-3-Clause AND Zlib
 Summary: IJG JPEG compliant runtime library with SIMD and other optimizations
 
 Development: https://github.com/libjpeg-turbo/libjpeg-turbo
+
+About _libturbojpeg_api
+-----------------------
+
+
+
+Package license: 
+
+Summary: An empty package that prevents multiple ABIs being installed simultaneously on Windows.
+
 
 Current build status
 ====================
@@ -90,53 +104,59 @@ Current release info
 
 | Name | Downloads | Version | Platforms |
 | --- | --- | --- | --- |
+| [![Conda Recipe](https://img.shields.io/badge/recipe-_libturbojpeg_api-green.svg)](https://anaconda.org/conda-forge/_libturbojpeg_api) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/_libturbojpeg_api.svg)](https://anaconda.org/conda-forge/_libturbojpeg_api) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/_libturbojpeg_api.svg)](https://anaconda.org/conda-forge/_libturbojpeg_api) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/_libturbojpeg_api.svg)](https://anaconda.org/conda-forge/_libturbojpeg_api) |
+| [![Conda Recipe](https://img.shields.io/badge/recipe-libjpeg--static-green.svg)](https://anaconda.org/conda-forge/libjpeg-static) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/libjpeg-static.svg)](https://anaconda.org/conda-forge/libjpeg-static) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/libjpeg-static.svg)](https://anaconda.org/conda-forge/libjpeg-static) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/libjpeg-static.svg)](https://anaconda.org/conda-forge/libjpeg-static) |
 | [![Conda Recipe](https://img.shields.io/badge/recipe-libjpeg--turbo-green.svg)](https://anaconda.org/conda-forge/libjpeg-turbo) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/libjpeg-turbo.svg)](https://anaconda.org/conda-forge/libjpeg-turbo) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/libjpeg-turbo.svg)](https://anaconda.org/conda-forge/libjpeg-turbo) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/libjpeg-turbo.svg)](https://anaconda.org/conda-forge/libjpeg-turbo) |
+| [![Conda Recipe](https://img.shields.io/badge/recipe-libjpeg--turbo--dev-green.svg)](https://anaconda.org/conda-forge/libjpeg-turbo-dev) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/libjpeg-turbo-dev.svg)](https://anaconda.org/conda-forge/libjpeg-turbo-dev) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/libjpeg-turbo-dev.svg)](https://anaconda.org/conda-forge/libjpeg-turbo-dev) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/libjpeg-turbo-dev.svg)](https://anaconda.org/conda-forge/libjpeg-turbo-dev) |
+| [![Conda Recipe](https://img.shields.io/badge/recipe-libjpeg8-green.svg)](https://anaconda.org/conda-forge/libjpeg8) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/libjpeg8.svg)](https://anaconda.org/conda-forge/libjpeg8) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/libjpeg8.svg)](https://anaconda.org/conda-forge/libjpeg8) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/libjpeg8.svg)](https://anaconda.org/conda-forge/libjpeg8) |
+| [![Conda Recipe](https://img.shields.io/badge/recipe-libturbojpeg--static-green.svg)](https://anaconda.org/conda-forge/libturbojpeg-static) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/libturbojpeg-static.svg)](https://anaconda.org/conda-forge/libturbojpeg-static) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/libturbojpeg-static.svg)](https://anaconda.org/conda-forge/libturbojpeg-static) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/libturbojpeg-static.svg)](https://anaconda.org/conda-forge/libturbojpeg-static) |
+| [![Conda Recipe](https://img.shields.io/badge/recipe-libturbojpeg0-green.svg)](https://anaconda.org/conda-forge/libturbojpeg0) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/libturbojpeg0.svg)](https://anaconda.org/conda-forge/libturbojpeg0) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/libturbojpeg0.svg)](https://anaconda.org/conda-forge/libturbojpeg0) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/libturbojpeg0.svg)](https://anaconda.org/conda-forge/libturbojpeg0) |
 
-Installing libjpeg-turbo
-========================
+Installing libjpeg-turbo-split
+==============================
 
-Installing `libjpeg-turbo` from the `conda-forge` channel can be achieved by adding `conda-forge` to your channels with:
+Installing `libjpeg-turbo-split` from the `conda-forge` channel can be achieved by adding `conda-forge` to your channels with:
 
 ```
 conda config --add channels conda-forge
 conda config --set channel_priority strict
 ```
 
-Once the `conda-forge` channel has been enabled, `libjpeg-turbo` can be installed with `conda`:
+Once the `conda-forge` channel has been enabled, `_libturbojpeg_api, libjpeg-static, libjpeg-turbo, libjpeg-turbo-dev, libjpeg8, libturbojpeg-static, libturbojpeg0` can be installed with `conda`:
 
 ```
-conda install libjpeg-turbo
-```
-
-or with `mamba`:
-
-```
-mamba install libjpeg-turbo
-```
-
-It is possible to list all of the versions of `libjpeg-turbo` available on your platform with `conda`:
-
-```
-conda search libjpeg-turbo --channel conda-forge
+conda install _libturbojpeg_api libjpeg-static libjpeg-turbo libjpeg-turbo-dev libjpeg8 libturbojpeg-static libturbojpeg0
 ```
 
 or with `mamba`:
 
 ```
-mamba search libjpeg-turbo --channel conda-forge
+mamba install _libturbojpeg_api libjpeg-static libjpeg-turbo libjpeg-turbo-dev libjpeg8 libturbojpeg-static libturbojpeg0
+```
+
+It is possible to list all of the versions of `_libturbojpeg_api` available on your platform with `conda`:
+
+```
+conda search _libturbojpeg_api --channel conda-forge
+```
+
+or with `mamba`:
+
+```
+mamba search _libturbojpeg_api --channel conda-forge
 ```
 
 Alternatively, `mamba repoquery` may provide more information:
 
 ```
 # Search all versions available on your platform:
-mamba repoquery search libjpeg-turbo --channel conda-forge
+mamba repoquery search _libturbojpeg_api --channel conda-forge
 
-# List packages depending on `libjpeg-turbo`:
-mamba repoquery whoneeds libjpeg-turbo --channel conda-forge
+# List packages depending on `_libturbojpeg_api`:
+mamba repoquery whoneeds _libturbojpeg_api --channel conda-forge
 
-# List dependencies of `libjpeg-turbo`:
-mamba repoquery depends libjpeg-turbo --channel conda-forge
+# List dependencies of `_libturbojpeg_api`:
+mamba repoquery depends _libturbojpeg_api --channel conda-forge
 ```
 
 
@@ -158,7 +178,7 @@ available continuous integration services. Thanks to the awesome service provide
 [CircleCI](https://circleci.com/), [AppVeyor](https://www.appveyor.com/),
 [Drone](https://cloud.drone.io/welcome), and [TravisCI](https://travis-ci.com/)
 it is possible to build and upload installable packages to the
-[conda-forge](https://anaconda.org/conda-forge) [Anaconda-Cloud](https://anaconda.org/)
+[conda-forge](https://anaconda.org/conda-forge) [anaconda.org](https://anaconda.org/)
 channel for Linux, Windows and OSX respectively.
 
 To manage the continuous integration and simplify feedstock maintenance
@@ -181,17 +201,17 @@ Terminology
                   produce the finished article (built conda distributions)
 
 
-Updating libjpeg-turbo-feedstock
-================================
+Updating libjpeg-turbo-split-feedstock
+======================================
 
-If you would like to improve the libjpeg-turbo recipe or build a new
+If you would like to improve the libjpeg-turbo-split recipe or build a new
 package version, please fork this repository and submit a PR. Upon submission,
 your changes will be run on the appropriate platforms to give the reviewer an
 opportunity to confirm that the changes result in a successful build. Once
 merged, the recipe will be re-built and uploaded automatically to the
 `conda-forge` channel, whereupon the built conda packages will be available for
 everybody to install and use from the `conda-forge` channel.
-Note that all branches in the conda-forge/libjpeg-turbo-feedstock are
+Note that all branches in the conda-forge/libjpeg-turbo-split-feedstock are
 immediately built and any created packages are uploaded, so PRs should be based
 on branches in forks and branches in the main repository should only be used to
 build distinct package versions.
