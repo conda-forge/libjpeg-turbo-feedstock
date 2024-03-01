@@ -20,4 +20,7 @@ fi
 make install -j$CPU_COUNT
 
 # We can remove this when we start using the new conda-build.
-find $PREFIX -name '*.la' -delete
+find $SRC_DIR/stage -name '*.la' -delete
+
+sed -i.bak "s,$SRC_DIR/stage,/opt/anaconda1anaconda2anaconda3,g" $SRC_DIR/stage/lib/pkgconfig/*.pc
+rm $SRC_DIR/stage/lib/pkgconfig/*.bak
