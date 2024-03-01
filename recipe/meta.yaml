@@ -1,7 +1,7 @@
 {% set version = "3.0.0" %}
-{% set jpeg_so_version = "8.3.2"%}
+{% set jpeg_so_version = "8.3.2" %}
 {% set jpeg_so_major_version = jpeg_so_version.split('.')[0] %}
-{% set turbo_so_version = "0.3.0"%}
+{% set turbo_so_version = "0.3.0" %}
 {% set turbo_so_major_version = turbo_so_version.split('.')[0] %}
 
 package:
