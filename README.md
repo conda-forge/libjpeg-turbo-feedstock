@@ -105,11 +105,9 @@ Current release info
 | Name | Downloads | Version | Platforms |
 | --- | --- | --- | --- |
 | [![Conda Recipe](https://img.shields.io/badge/recipe-_libturbojpeg_api-green.svg)](https://anaconda.org/conda-forge/_libturbojpeg_api) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/_libturbojpeg_api.svg)](https://anaconda.org/conda-forge/_libturbojpeg_api) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/_libturbojpeg_api.svg)](https://anaconda.org/conda-forge/_libturbojpeg_api) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/_libturbojpeg_api.svg)](https://anaconda.org/conda-forge/_libturbojpeg_api) |
-| [![Conda Recipe](https://img.shields.io/badge/recipe-libjpeg--static-green.svg)](https://anaconda.org/conda-forge/libjpeg-static) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/libjpeg-static.svg)](https://anaconda.org/conda-forge/libjpeg-static) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/libjpeg-static.svg)](https://anaconda.org/conda-forge/libjpeg-static) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/libjpeg-static.svg)](https://anaconda.org/conda-forge/libjpeg-static) |
 | [![Conda Recipe](https://img.shields.io/badge/recipe-libjpeg--turbo-green.svg)](https://anaconda.org/conda-forge/libjpeg-turbo) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/libjpeg-turbo.svg)](https://anaconda.org/conda-forge/libjpeg-turbo) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/libjpeg-turbo.svg)](https://anaconda.org/conda-forge/libjpeg-turbo) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/libjpeg-turbo.svg)](https://anaconda.org/conda-forge/libjpeg-turbo) |
 | [![Conda Recipe](https://img.shields.io/badge/recipe-libjpeg--turbo--dev-green.svg)](https://anaconda.org/conda-forge/libjpeg-turbo-dev) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/libjpeg-turbo-dev.svg)](https://anaconda.org/conda-forge/libjpeg-turbo-dev) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/libjpeg-turbo-dev.svg)](https://anaconda.org/conda-forge/libjpeg-turbo-dev) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/libjpeg-turbo-dev.svg)](https://anaconda.org/conda-forge/libjpeg-turbo-dev) |
 | [![Conda Recipe](https://img.shields.io/badge/recipe-libjpeg8-green.svg)](https://anaconda.org/conda-forge/libjpeg8) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/libjpeg8.svg)](https://anaconda.org/conda-forge/libjpeg8) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/libjpeg8.svg)](https://anaconda.org/conda-forge/libjpeg8) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/libjpeg8.svg)](https://anaconda.org/conda-forge/libjpeg8) |
-| [![Conda Recipe](https://img.shields.io/badge/recipe-libturbojpeg--static-green.svg)](https://anaconda.org/conda-forge/libturbojpeg-static) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/libturbojpeg-static.svg)](https://anaconda.org/conda-forge/libturbojpeg-static) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/libturbojpeg-static.svg)](https://anaconda.org/conda-forge/libturbojpeg-static) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/libturbojpeg-static.svg)](https://anaconda.org/conda-forge/libturbojpeg-static) |
 | [![Conda Recipe](https://img.shields.io/badge/recipe-libturbojpeg0-green.svg)](https://anaconda.org/conda-forge/libturbojpeg0) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/libturbojpeg0.svg)](https://anaconda.org/conda-forge/libturbojpeg0) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/libturbojpeg0.svg)](https://anaconda.org/conda-forge/libturbojpeg0) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/libturbojpeg0.svg)](https://anaconda.org/conda-forge/libturbojpeg0) |
 
 Installing libjpeg-turbo-split
@@ -122,16 +120,16 @@ conda config --add channels conda-forge
 conda config --set channel_priority strict
 ```
 
-Once the `conda-forge` channel has been enabled, `_libturbojpeg_api, libjpeg-static, libjpeg-turbo, libjpeg-turbo-dev, libjpeg8, libturbojpeg-static, libturbojpeg0` can be installed with `conda`:
+Once the `conda-forge` channel has been enabled, `_libturbojpeg_api, libjpeg-turbo, libjpeg-turbo-dev, libjpeg8, libturbojpeg0` can be installed with `conda`:
 
 ```
-conda install _libturbojpeg_api libjpeg-static libjpeg-turbo libjpeg-turbo-dev libjpeg8 libturbojpeg-static libturbojpeg0
+conda install _libturbojpeg_api libjpeg-turbo libjpeg-turbo-dev libjpeg8 libturbojpeg0
 ```
 
 or with `mamba`:
 
 ```
-mamba install _libturbojpeg_api libjpeg-static libjpeg-turbo libjpeg-turbo-dev libjpeg8 libturbojpeg-static libturbojpeg0
+mamba install _libturbojpeg_api libjpeg-turbo libjpeg-turbo-dev libjpeg8 libturbojpeg0
 ```
 
 It is possible to list all of the versions of `_libturbojpeg_api` available on your platform with `conda`:
