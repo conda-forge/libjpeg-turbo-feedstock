@@ -141,25 +141,6 @@ outputs:
         - test -f ${PREFIX}/lib/libjpeg.{{ jpeg_so_version }}.dylib                # [osx]
         - if not exist %PREFIX%\\Library\\bin\\jpeg{{ jpeg_so_major_version }}.dll exit 1  # [win]
 
-  # Static library package
-  - name: libturbojpeg-static
-    script: install.py
-    test:
-      commands:
-      # Need these
-        - test -f ${PREFIX}/lib/libturbojpeg.a                                # [unix]
-        - if not exist %PREFIX%\\Library\\lib\\turbojpeg-static.lib exit 1    # [win]
-  - name: libjpeg-static
-    script: install.py
-    requirements:
-      run_constrained:
-        - jpeg <0.0.0a
-    test:
-      commands:
-      # Need these
-        - test -f ${PREFIX}/lib/libjpeg.a                                     # [unix]
-        - if not exist %PREFIX%\\Library\\lib\\jpeg-static.lib exit 1         # [win]
-
   # Clobber preventer for Windows; prevents multiple dll files from being
   # installed simultaneously. This lets us avoid exporting a strict pin on the
   # API which is not strictly correlated with the ABI.
