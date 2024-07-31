@@ -27,7 +27,13 @@ outputs:
 
   # Binary package; this is the exported name from the pre-multi-output recipe
   - name: libjpeg-turbo
-    script: install.py
+    files:
+      include:
+        - bin/**/*
+        - doc/**/*
+        - share/**/*
+      exclude:
+        - bin/*.dll
     requirements:
       build:
         - {{ compiler('c') }}
@@ -59,7 +65,21 @@ outputs:
 
   # Development package
   - name: libjpeg-turbo-dev
-    script: install.py
+    files:
+      include:
+        - include/**/*
+        - lib/**/*
+      exclude:
+        # versioned libs
+        - lib/lib*.*.dylib
+        - lib/lib*.so.*
+        # static libs
+        - lib/lib*.a
+        - lib/lib*.lib
+        - lib/*.a.lib
+        - lib/*_a.lib
+        - lib/*static.lib
+        - lib/**/*static*
     build:
       run_exports:
         - {{ pin_subpackage('libturbojpeg' ~ turbo_so_major_version) }}
@@ -106,7 +126,12 @@ outputs:
 
   # Run exports package
   - name: libturbojpeg{{ turbo_so_major_version }}
-    script: install.py
+    files:
+      include:
+        - bin/turbojpeg.dll  # [win]
+        - lib/libturbojpeg.*.dylib  # [osx]
+        - lib/libturbojpeg.so.*  # [linux]
+      exclude: []
     build:
       run_exports:
         - {{ pin_subpackage('libturbojpeg' ~ turbo_so_major_version) }}
@@ -123,8 +148,14 @@ outputs:
         - test -f ${PREFIX}/lib/libturbojpeg.{{ turbo_so_major_version }}.dylib     # [osx]
         - test -f ${PREFIX}/lib/libturbojpeg.{{ turbo_so_version }}.dylib           # [osx]
         - if not exist %PREFIX%\\Library\\bin\\turbojpeg.dll exit 1           # [win]
+
   - name: libjpeg{{ jpeg_so_major_version }}
-    script: install.py
+    files:
+      include:
+        - bin/jpeg*.dll  # [win]
+        - lib/libjpeg.*.dylib  # [osx]
+        - lib/libjpeg.so.*  # [linux]
+      exclude: []
     build:
       run_exports:
         - {{ pin_subpackage('libjpeg' ~ jpeg_so_major_version) }}
