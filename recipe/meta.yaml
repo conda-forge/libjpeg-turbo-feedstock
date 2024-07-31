@@ -22,7 +22,6 @@ requirements:
     - cmake
     - make
     - yasm
-    - m2-sed  # [win]
 
 outputs:
 
