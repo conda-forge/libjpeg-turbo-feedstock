@@ -18,6 +18,7 @@ build:
 requirements:
   build:
     - {{ compiler('c') }}
+    - {{ stdlib('c') }}
     - cmake
     - make
     - yasm
@@ -37,6 +38,7 @@ outputs:
     requirements:
       build:
         - {{ compiler('c') }}
+        - {{ stdlib('c') }}
       host:
         - {{ pin_subpackage('libturbojpeg' ~ turbo_so_major_version, exact=True) }}
         - {{ pin_subpackage('libjpeg' ~ jpeg_so_major_version, exact=True) }}
@@ -87,6 +89,7 @@ outputs:
     requirements:
       build:
         - {{ compiler('c') }}
+        - {{ stdlib('c') }}
       host:
         - {{ pin_subpackage('libturbojpeg' ~ turbo_so_major_version, exact=True) }}
         - {{ pin_subpackage('libjpeg' ~ jpeg_so_major_version, exact=True) }}
@@ -138,6 +141,7 @@ outputs:
     requirements:
       build:
         - {{ compiler('c') }}
+        - {{ stdlib('c') }}
       run:
         - {{ pin_subpackage('_libturbojpeg_api', max_pin='x.x.x') }}          # [win]
     test:
@@ -162,6 +166,7 @@ outputs:
     requirements:
       build:
         - {{ compiler('c') }}
+        - {{ stdlib('c') }}
       run_constrained:
         - jpeg <0.0.0a
     test:
