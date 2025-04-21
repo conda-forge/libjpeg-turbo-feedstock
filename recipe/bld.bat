@@ -2,7 +2,7 @@
 mkdir build_libjpeg
 cd  build_libjpeg
 
-cmake -G "NMake Makefiles" ^
+cmake %CMAKE_ARGS% -G "NMake Makefiles" ^
 	-D CMAKE_INSTALL_PREFIX=%LIBRARY_PREFIX% ^
 	-D CMAKE_BUILD_TYPE=Release ^
 	-D ENABLE_STATIC=1 ^
